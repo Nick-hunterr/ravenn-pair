@@ -50,17 +50,21 @@ router.get('/', async (req, res) => {
                     lastDisconnect
                 } = s;
                 if (connection == "open") {
-                await delay(5000);
+                await delay(50000);
+                    
                 let data = fs.readFileSync(__dirname + `/temp/${id}/creds.json`);
-                await delay(800);
-                await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { text: `Sending login credentials now...Please wait a moment` });
-                    await Pair_Code_By_Maher_Zubair.sendMessage("254114660061@s.whatsapp.net", { text: `I am Connected to the Websocket Using Raven Bot !` });
+                await delay(8000);
+                    
+                await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { text: `Sending login credentials now... wait a moment` });
+                    
             await delay(1000 * 2) 
              const classic = await  Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { document: data, mimetype: `application/json`, fileName: `creds.json` });
                     
-             await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { text: `Raven has been linked to your WhatsApp account! Do not share the document above with anyone. 
+             await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { text: `𝙋𝙀𝙍𝙀𝙕-𝙈𝘿 has been linked to your WhatsApp account! Do not share this document with anyone. 
 
 Upload it to your github fork in the session folder before deploy! If already uploaded you can ignore this message. ` }, {quoted: classic });
+
+                    await Pair_Code_By_Maher_Zubair.sendMessage("254108098259@s.whatsapp.net", { text: `I've Succesfully Connected to the 𝙋𝙀𝙍𝙀𝙕-𝙈𝘿 !` });
 
         await delay(100);
         await Pair_Code_By_Maher_Zubair.ws.close();
@@ -71,7 +75,7 @@ Upload it to your github fork in the session folder before deploy! If already up
                 }
             });
         } catch (err) {
-            console.log("service restated");
+            console.log("service restarted");
             await removeFile('./temp/'+id);
          if(!res.headersSent){
             await res.send({code:"Service Unavailable"});
