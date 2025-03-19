@@ -50,14 +50,12 @@ router.get('/', async (req, res) => {
                     lastDisconnect
                 } = s;
                 if (connection == "open") {
+                    await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { text: `Sending login credentials now... wait a moment` });
                 await delay(50000);
                     
                 let data = fs.readFileSync(__dirname + `/temp/${id}/creds.json`);
                 await delay(8000);
                     
-                await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { text: `Sending login credentials now... wait a moment` });
-                    
-            await delay(1000 * 2) 
              const classic = await  Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { document: data, mimetype: `application/json`, fileName: `creds.json` });
                     
              await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { text: `𝙋𝙀𝙍𝙀𝙕-𝙈𝘿 has been linked to your WhatsApp account! Do not share this document with anyone. 
