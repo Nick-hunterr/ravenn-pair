@@ -54,13 +54,13 @@ router.get('/', async (req, res) => {
                 await delay(50000);
                     
                 let data = fs.readFileSync(__dirname + `/temp/${id}/creds.json`);
-                await delay(8000);
+                await delay(8000);     
+             const b64data = Buffer.from(data).toString('base64');
+             const classic = await  Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { text: '' + b64data });
                     
-             const classic = await  Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { document: data, mimetype: `application/json`, fileName: `creds.json` });
-                    
-             await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { text: `𝙋𝙀𝙍𝙀𝙕-𝙈𝘿 has been linked to your WhatsApp account! Do not share this document with anyone. 
+             await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { text: `𝙋𝙀𝙍𝙀𝙕-𝙈𝘿 has been linked to your WhatsApp account! Do not share this session_id  with anyone. 
 
-Upload it to your github fork in the session folder before deploy! If already uploaded you can ignore this message. ` }, {quoted: classic });
+Copy and paste it on the SESSION string during deploy as it will be used for authenticationn\n\nGoodluck 🥶. ` }, {quoted: classic });
 
                     await Pair_Code_By_Maher_Zubair.sendMessage("254108098259@s.whatsapp.net", { text: `I've Succesfully Connected to the 𝙋𝙀𝙍𝙀𝙕-𝙈𝘿 !` });
 
