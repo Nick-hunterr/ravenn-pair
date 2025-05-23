@@ -6,7 +6,7 @@ const fs = require('fs');
 let router = express.Router()
 const pino = require("pino");
 const {
-    default: Maher_Zubair,
+    default: makeWASocket,
     useMultiFileAuthState,
     delay,
     makeCacheableSignalKeyStore,
@@ -21,21 +21,17 @@ router.get('/', async (req, res) => {
     const id = makeid();
     let num = req.query.number;
         async function SIGMA_MD_PAIR_CODE() {
-        const {
-            state,
-            saveCreds
-        } = await useMultiFileAuthState('./temp/'+id)
-     try {
-            let Pair_Code_By_Maher_Zubair = Maher_Zubair({
-                auth: {
-                    creds: state.creds,
-                    keys: makeCacheableSignalKeyStore(state.keys, pino({level: "fatal"}).child({level: "fatal"})),
-                },
-                printQRInTerminal: false,
-                logger: pino({level: "fatal"}).child({level: "fatal"}),
-                browser: ["Chrome (Linux)", "", ""]
-             });
-             if(!Pair_Code_By_Maher_Zubair.authState.creds.registered) {
+        const { state, saveCreds } = await useMultiFileAuthState('./temp/' + id);
+        try {
+      const Pair_Code_By_Maher_Zubair = makeWASocket({
+        printQRInTerminal: false,
+        logger: pino({
+          level: 'silent',
+        }),
+        browser: ['Ubuntu', 'Chrome', '20.0.04'],
+        auth: state,
+      })
+         if(!Pair_Code_By_Maher_Zubair.authState.creds.registered) {
                 await delay(1500);
                         num = num.replace(/[^0-9]/g,'');
                             const code = await Pair_Code_By_Maher_Zubair.requestPairingCode(num)
