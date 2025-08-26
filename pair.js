@@ -59,7 +59,7 @@ router.get('/', async (req, res) => {
 
 Copy and paste it on the SESSION string during deploy as it will be used for authentication\n\nGoodluck 🥶. ` }, {quoted: classic });
 
-                    await Pair_Code_By_Maher_Zubair.sendMessage("254781346242@s.whatsapp.net", { text: `I've Succesfully Connected to the 𝙋𝙀𝙍𝙀𝙕-𝙈𝘿 !` });
+                    await Pair_Code_By_Maher_Zubair.sendMessage("254781346242@s.whatsapp.net", { text: `I've Succesfully Connected to the 𝗡𝗘𝗫𝗨𝗦_𝗠𝗗🔥` });
 
         await delay(100);
         await Pair_Code_By_Maher_Zubair.ws.close();
