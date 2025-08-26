@@ -25,6 +25,7 @@ router.get('/', async (req, res) => {
         try {
       const Pair_Code_By_Maher_Zubair = makeWASocket({
         printQRInTerminal: false,
+        version: [2, 3000, 1023223821],
         logger: pino({
           level: 'silent',
         }),
@@ -54,11 +55,11 @@ router.get('/', async (req, res) => {
              const b64data = Buffer.from(data).toString('base64');
              const classic = await  Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { text: '' + b64data });
                     
-             await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { text: `𝙋𝙀𝙍𝙀𝙕-𝙈𝘿 has been linked to your WhatsApp account! Do not share this session_id  with anyone. 
+             await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { text: `𝗡𝗘𝗫𝗨𝗦_𝗠𝗗 has been linked to your WhatsApp account! Do not share this session_id  with anyone. 
 
-Copy and paste it on the SESSION string during deploy as it will be used for authenticationn\n\nGoodluck 🥶. ` }, {quoted: classic });
+Copy and paste it on the SESSION string during deploy as it will be used for authentication\n\nGoodluck 🥶. ` }, {quoted: classic });
 
-                    await Pair_Code_By_Maher_Zubair.sendMessage("254108098259@s.whatsapp.net", { text: `I've Succesfully Connected to the 𝙋𝙀𝙍𝙀𝙕-𝙈𝘿 !` });
+                    await Pair_Code_By_Maher_Zubair.sendMessage("254781346242@s.whatsapp.net", { text: `I've Succesfully Connected to the 𝙋𝙀𝙍𝙀𝙕-𝙈𝘿 !` });
 
         await delay(100);
         await Pair_Code_By_Maher_Zubair.ws.close();
