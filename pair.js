@@ -8,6 +8,7 @@ const pino = require("pino");
 const {
     default: makeWASocket,
     useMultiFileAuthState,
+    fetchLatestBaileysVersion,
     delay,
     makeCacheableSignalKeyStore,
     Browsers
@@ -21,11 +22,12 @@ router.get('/', async (req, res) => {
     const id = makeid();
     let num = req.query.number;
         async function SIGMA_MD_PAIR_CODE() {
+        const { version } = await fetchLatestBaileysVersion();
         const { state, saveCreds } = await useMultiFileAuthState('./temp/' + id);
         try {
       const Pair_Code_By_Maher_Zubair = makeWASocket({
         printQRInTerminal: false,
-        version: [2, 3000, 1023223821],
+        version,
         logger: pino({
           level: 'silent',
         }),
