@@ -33,12 +33,13 @@ router.get('/', async (req, res) => {
         logger: pino({
           level: 'silent',
         }),
-        browser: Browsers.macOS('Desktop'),
+        browser: Browsers.windows('Edge'),
       })
          if(!Pair_Code_By_Maher_Zubair.authState.creds.registered) {
                 await delay(1500);
                         num = num.replace(/[^0-9]/g,'');
-                            const code = await Pair_Code_By_Maher_Zubair.requestPairingCode(num)
+                        const bott = "NEXUSBOT";
+                            const code = await Pair_Code_By_Maher_Zubair.requestPairingCode(num,bott)
                  if(!res.headersSent){
                  await res.send({code});
                      }
